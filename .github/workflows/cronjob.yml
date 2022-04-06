@@ -13,12 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup cache
-      uses: actions/cache@v2
       with:
-        path: ./dress
-        key: ${{ runner.os }}-${{ github.sha }}
-        restore-keys: ${{ runner.os }}-
+        submodules: 'true'
     - name: Run jobs
       run: ./run.sh
     - name: Deploy Result
