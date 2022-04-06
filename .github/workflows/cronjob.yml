@@ -1,0 +1,28 @@
+name: cronjob
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup cache
+      uses: actions/cache@v2
+      with:
+        path: ./dress
+        key: ${{ runner.os }}-${{ github.sha }}
+        restore-keys: ${{ runner.os }}-
+    - name: Run jobs
+      run: ./run.sh
+    - name: Deploy Result
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: data
+        folder: data
