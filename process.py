@@ -8,6 +8,7 @@ def loop_dir(directory, base):
         for file in directory["contents"]:
             if file["type"] == "file":
                 if file["name"].split(".")[-1].lower() in ["jpg", "png", "jpeg", "gif", "webp"]:
+                    print("Adding photo: " + file["name"])
                     arr.append(base + "/" + directory["name"] + "/" + file["name"])
             if file["type"] == "directory":
                 arr = arr + loop_dir(file, base + "/" + directory["name"])
