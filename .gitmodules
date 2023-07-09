@@ -1,6 +1,6 @@
 [submodule "dress"]
 	path = dress
-	url = https://github.com/komeiji-satori/Dress
+	url = https://github.com/Cute-Dress/Dress
 [submodule "dress-lite"]
 	path = dress-lite
 	url = https://github.com/KiritakeKumi/Dress-Lite
